@@ -1,0 +1,23 @@
+Domain,User Input,Bot Response,Context,Intent,Domain_encoded,Intent_encoded
+finance,how do i get a bank statement,you can download it from your online banking portal.,can i invest in stocks through your bank,get_bank_statement,1,8
+e-commerce,i forgot my account password,click on 'forgot password' to reset it.,what payment methods do you accept,reset_password,0,15
+e-commerce,what is the refund policy,you can get a full refund within 30 days of purchase.,can i cancel my order,ask_refund_policy,0,5
+e-commerce,can i get a gift receipt,"yes, we offer gift receipts during checkout.",i forgot my account password,request_gift_receipt,0,14
+finance,can i invest in stocks through your bank,"yes, we offer stock investment services.",what documents are needed for a home loan,stock_investment,1,16
+e-commerce,can i cancel my order,"if it hasn’t shipped yet, yes you can cancel it.",where is my package,cancel_order,0,7
+finance,what is the current interest rate,the current interest rate is 3.5% per annum.,how do i open a savings account,ask_interest_rate,1,2
+finance,is there a fee for early loan repayment,"yes, there may be a small prepayment penalty.",can i apply for a personal loan,loan_prepayment_fee,1,11
+finance,can i apply for a personal loan,"yes, you can apply for a personal loan through our website.",what is the current interest rate,apply_loan,1,0
+e-commerce,how do i change my delivery address,you can change it from your account settings.,the product i received is damaged,update_address,0,18
+finance,how can i improve my credit score,you can improve your credit score by paying bills on time.,what is a credit score,ask_credit_score,1,1
+e-commerce,where is my package,let me check the tracking information for you.,i want to return my order,track_order,0,17
+finance,what documents are needed for a home loan,"you will need id, income proof, and address verification.",how can i improve my credit score,home_loan_documents,1,9
+finance,what is a credit score,a credit score is a number that represents your creditworthiness.,is there a fee for early loan repayment,ask_credit_score,1,1
+e-commerce,the product i received is damaged,we're sorry to hear that. we'll send a replacement.,do you offer international shipping,report_damaged_item,0,13
+e-commerce,do you offer international shipping,"yes, we ship to over 100 countries.",what is the refund policy,ask_shipping_info,0,6
+finance,what is a mutual fund,a mutual fund pools money from many investors to purchase securities.,how do i get a bank statement,ask_investment_info,1,3
+e-commerce,i want to return my order,"sure, may i have your order number?",can i get a gift receipt,initiate_return,0,10
+finance,how do i open a savings account,you can open a savings account online or at any of our branches.,what is a mutual fund,open_account,1,12
+e-commerce,what payment methods do you accept,"we accept credit cards, paypal, and more.",how do i change my delivery address,ask_payment_options,0,4
+e-commerce,i want to return my order,"sure, may i have your order number?",nan,initiate_return,0,10
+finance,what is a mutual fund,a mutual fund pools money from many investors to purchase securities.,nan,ask_investment_info,1,3

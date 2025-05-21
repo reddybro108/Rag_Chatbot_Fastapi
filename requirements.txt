@@ -1,0 +1,9 @@
+fastapi
+pydantic
+pandas
+langchain
+transformers
+torch         # Required for most HuggingFace models
+faiss-cpu     # Vector store for similarity search
+huggingface-hub
+uvicorn       # For running FastAPI server
