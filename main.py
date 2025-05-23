@@ -1,14 +1,3 @@
-import sys
-import os
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
-import nltk
-nltk.download('punkt')
-nltk.download('stopwords')
-from fastapi import FastAPI
-from pydantic import BaseModel
-from model import model, vectorizer
-from preprocess import clean_text
-
 app = FastAPI()
 import sys
 import os

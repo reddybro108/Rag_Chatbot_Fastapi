@@ -9,5 +9,11 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 import joblib
 
-model = joblib.load('path/to/your/model.pkl')
-vectorizer = joblib.load('path/to/your/vectorizer.pkl')
+model = joblib.load('models/faq_model.pkl')
+
+vectorizer = joblib.load('models/vectorizer.pkl')
+
+import os
+
+model_path = os.path.join(os.path.dirname(__file__), 'models', 'faq_model.pkl')
+model = joblib.load(model_path)
