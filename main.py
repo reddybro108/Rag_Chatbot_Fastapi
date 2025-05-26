@@ -1,4 +1,4 @@
-app = FastAPI()
+
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
@@ -9,8 +9,15 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from model import model, vectorizer
 from preprocess import clean_text
+from fastapi import FastAPI
+
+
+from fastapi import FastAPI
+from routes import router
 
 app = FastAPI()
+app.include_router(router)
+
 
 class Query(BaseModel):
     user_input: str

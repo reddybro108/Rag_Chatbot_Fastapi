@@ -1,19 +1,15 @@
-# import pickle
-
-# with open("app/model.pkl", "rb") as f:
-#     model = pickle.load(f)
-
-# with open("app/tfidf.pkl", "rb") as f:
-#     vectorizer = pickle.load(f)
-
-from sklearn.feature_extraction.text import TfidfVectorizer
-import joblib
-
-model = joblib.load('models/faq_model.pkl')
-
-vectorizer = joblib.load('models/vectorizer.pkl')
-
 import os
+import pickle
 
-model_path = os.path.join(os.path.dirname(__file__), 'models', 'faq_model.pkl')
-model = joblib.load(model_path)
+# Build full paths
+base_dir = os.path.dirname(os.path.dirname(__file__))
+model_path = os.path.join(base_dir, "models", "model.pkl")
+vectorizer_path = os.path.join(base_dir, "models", "tfidf.pkl")
+
+# Load model
+with open(model_path, "rb") as f:
+    model = pickle.load(f)
+
+# Load vectorizer
+with open(vectorizer_path, "rb") as f:
+    vectorizer = pickle.load(f)
