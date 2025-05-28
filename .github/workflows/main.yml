@@ -11,40 +11,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v3
-      with:
-        python-version: '3.13'
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.13'
 
-    - name: Cache pip
-      uses: actions/cache@v3
-      with:
-        path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-pip-
+      - name: Cache pip
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install pytest
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-    - name: Run syntax check on app/main.py
-      run: |
-        python -m py_compile app/main.py
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=${{ github.workspace }}/app" >> $GITHUB_ENV
 
-    - name: Run tests
-      run: |
-        pytest tests
+      - name: Run syntax check
+        run: python -m py_compile app/main.py
+
+      - name: Run tests
+        run: pytest tests
 
   dockerize:
     needs: build
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -61,61 +60,3 @@ jobs:
           context: .
           push: true
           tags: reddybro108/rag_chatbot_fastapi:latest
-
-
-
-# ====================================================================================================================================
-# name: rag_chatbot_fastapi CI/CD
-
-# on:
-#   push:
-#     branches: [main]
-#   pull_request:
-#     branches: [main]
-
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-
-#     steps:
-#     - name: Checkout code
-#       uses: actions/checkout@v3
-
-#     - name: Set up Python
-#       uses: actions/setup-python@v3
-#       with:
-#         python-version: '3.13'
-
-#     - name: Install dependencies
-#       run: |
-#         python -m pip install --upgrade pip
-#         pip install -r requirements.txt
-
-#     - name: Run syntax check on app main.py
-#       run: |
-#         python -m py_compile app/main.py
-
-#     - name: Run tests
-#       run: |
-#         Rag_Chatbot_Fastapi
-#         pytest tests
-
-#   dockerize:
-#     needs: build
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v3
-
-#       - name: Log in to Docker Hub
-#         uses: docker/login-action@v3
-#         with:
-#           username: ${{ secrets.DOCKER_USERNAME }}
-#           password: ${{ secrets.DOCKER_PASSWORD }}
-
-#       - name: Build and push Docker image
-#         uses: docker/build-push-action@v3
-#         with:
-#           context: .
-#           push: true
-#           tags: reddybro108/Rag_Chatbot_Fastapi:latest
