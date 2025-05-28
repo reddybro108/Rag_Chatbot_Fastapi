@@ -30,7 +30,7 @@ jobs:
 
     - name: Run tests
       run: |
-        cd Rag_Chatbot_Fastapi
+        Rag_Chatbot_Fastapi
         pytest tests
 
   dockerize:
