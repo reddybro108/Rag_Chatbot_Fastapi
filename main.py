@@ -22,6 +22,10 @@ app.include_router(router)
 class Query(BaseModel):
     user_input: str
 
+@app.get("/")
+def read_root():
+    return {"message": "Hello from FastAPI"}    
+
 @app.post("/predict/")
 async def predict_intent(query: Query):
     try:
