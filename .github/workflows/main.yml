@@ -24,9 +24,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run syntax check
+    - name: Run syntax check on app main.py
       run: |
-        python -m py_compile main.py
+        python -m py_compile app/main.py
 
     - name: Run tests
       run: |
@@ -51,4 +51,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: reddybro108/rag_chatbot_fastapi:latest
+          tags: reddybro108/Rag_Chatbot_Fastapi:latest
