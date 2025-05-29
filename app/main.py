@@ -37,7 +37,7 @@ async def predict_intent(query: Query):
 class Query(BaseModel):
     user_input: str
 
-@app.post("/predict/")
+@app.post("/predict1/")
 def predict_intent(query: Query):
     cleaned = clean_text(query.user_input)
     vectorized = vectorizer.transform([cleaned])
