@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
-from model import model, vectorizer
+from app.model import model, vectorizer
 
 router = APIRouter()
 
